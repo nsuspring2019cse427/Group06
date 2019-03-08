@@ -26,6 +26,20 @@ public class ReminderTest {
     public void testLaunchOfActivity(){
         View view = reminderActivity.findViewById(R.id.textView);
         assertNotNull(view);
+        View view1 = reminderActivity.findViewById(R.id.cancelbutton);
+        assertNotNull(view1);
+        View view2 = reminderActivity.findViewById(R.id.setbutton);
+        assertNotNull(view2);
+        View view3 = reminderActivity.findViewById(R.id.timepicker);
+        assertNotNull(view3);
+        View view4 = reminderActivity.findViewById(R.id.medicinename);
+        assertNotNull(view4);
+        View view5 = reminderActivity.findViewById(R.id.iconreminder);
+        assertNotNull(view5);
+        View view6 = reminderActivity.findViewById(R.id.layoutreminder);
+        assertNotNull(view6);
+        View view7 = reminderActivity.findViewById(R.id.backgroud);
+        assertNotNull(view7);
     }
 
     @After
