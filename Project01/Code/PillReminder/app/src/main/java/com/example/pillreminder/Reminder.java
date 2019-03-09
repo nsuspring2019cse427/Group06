@@ -30,7 +30,6 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         EditText editText = findViewById(R.id.medicinename);
-        TimePicker timePicker = findViewById(R.id.timepicker);
 
         // Set notificationId & text.
         Intent intent = new Intent(this, Alarm.class);
@@ -45,21 +44,12 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
 
         switch (view.getId()) {
             case R.id.setbutton:
-                int hour = timePicker.getCurrentHour();
-                int minute = timePicker.getCurrentMinute();
-
-                // Create time.
-                Calendar startTime = Calendar.getInstance();
-                startTime.set(Calendar.HOUR_OF_DAY, hour);
-                startTime.set(Calendar.MINUTE, minute);
-                startTime.set(Calendar.SECOND, 0);
-                long alarmStartTime = startTime.getTimeInMillis();
-
+                //get alarm time
+                long alarmStartTime = getTime();
                 // Set alarm.
                 // set(type, milliseconds, intent)
                 alarm.setRepeating(AlarmManager.RTC_WAKEUP, alarmStartTime,
                         AlarmManager.INTERVAL_DAY,alarmIntent);
-                notificationId++;
                 Toast.makeText(this, "Done!" , Toast.LENGTH_SHORT).show();
                 break;
 
@@ -77,5 +67,18 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
             return true;
         }
         return super.onKeyDown(keyCode,event);
+    }
+    public long getTime(){
+        TimePicker timePicker = findViewById(R.id.timepicker);
+
+        int hour = timePicker.getCurrentHour();
+        int minute = timePicker.getCurrentMinute();
+
+        // Create time.
+        Calendar startTime = Calendar.getInstance();
+        startTime.set(Calendar.HOUR_OF_DAY, hour);
+        startTime.set(Calendar.MINUTE, minute);
+        startTime.set(Calendar.SECOND, 0);
+        return startTime.getTimeInMillis();
     }
 }
