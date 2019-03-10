@@ -45,7 +45,14 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
         switch (view.getId()) {
             case R.id.setbutton:
                 //get alarm time
-                long alarmStartTime = getTime();
+                TimePicker timePicker = findViewById(R.id.timepicker);
+
+                int hour = timePicker.getCurrentHour();
+                int minute = timePicker.getCurrentMinute();
+
+                long alarmStartTime = getTimeInMillis(hour,minute);
+                Toast.makeText(this, "T" +alarmStartTime + "C" +System.currentTimeMillis(), Toast.LENGTH_LONG).show();
+
                 // Set alarm.
                 // set(type, milliseconds, intent)
                 alarm.setRepeating(AlarmManager.RTC_WAKEUP, alarmStartTime,
@@ -68,12 +75,7 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
         }
         return super.onKeyDown(keyCode,event);
     }
-    public long getTime(){
-        TimePicker timePicker = findViewById(R.id.timepicker);
-
-        int hour = timePicker.getCurrentHour();
-        int minute = timePicker.getCurrentMinute();
-
+    public long getTimeInMillis(int hour,int minute){
         // Create time.
         Calendar startTime = Calendar.getInstance();
         startTime.set(Calendar.HOUR_OF_DAY, hour);
