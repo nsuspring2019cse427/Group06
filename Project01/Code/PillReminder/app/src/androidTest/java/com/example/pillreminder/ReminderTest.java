@@ -26,10 +26,46 @@ public class ReminderTest {
     }
 
     @Test
-    public void testLaunchOfActivity(){
+    public void testLaunchActivity_TextView(){
         View view = reminderActivity.findViewById(R.id.textView);
         assertNotNull(view);
     }
+    @Test
+    public void testLaunchActivity_cancelbuttonView(){
+        View view1 = reminderActivity.findViewById(R.id.cancelbutton);
+        assertNotNull(view1);
+    }
+    @Test
+    public void testLaunchActivity_setbuttonView(){
+        View view2 = reminderActivity.findViewById(R.id.setbutton);
+        assertNotNull(view2);
+    }
+    @Test
+    public void testLaunchActivity_timepickerView(){
+        View view3 = reminderActivity.findViewById(R.id.timepicker);
+        assertNotNull(view3);
+    }
+    @Test
+    public void testLaunchActivity_medicinenameView(){
+        View view4 = reminderActivity.findViewById(R.id.medicinename);
+        assertNotNull(view4);
+    }
+    @Test
+    public void testLaunchActivity_iconreminderView(){
+        View view5 = reminderActivity.findViewById(R.id.iconreminder);
+        assertNotNull(view5);
+    }
+    @Test
+    public void testLaunchActivity_layoutreminderView(){
+        View view6 = reminderActivity.findViewById(R.id.layoutreminder);
+        assertNotNull(view6);
+    }
+    @Test
+    public void testLaunchOfActivity_backgroundView(){
+        View view7 = reminderActivity.findViewById(R.id.backgroud);
+        assertNotNull(view7);
+    }
+
 
     @After
     public void tearDown() throws Exception {
