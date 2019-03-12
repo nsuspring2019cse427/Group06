@@ -65,6 +65,27 @@ public class ReminderTest {
         View view7 = reminderActivity.findViewById(R.id.backgroud);
         assertNotNull(view7);
     }
+    @Test
+    public void testLaunchOfSetButtonActivity(){
+        assertNotNull(reminderActivity.findViewById(R.id.setbutton));
+        onView(withId(R.id.setbutton)).perform(click());
+        Intent intent = new Intent(reminderActivity, Alarm.class);
+
+    }
+
+    @Test
+    public void testonClick(View view){
+        if (view.getId() == R.id.setbutton) {
+            assertNotNull(reminderActivity.findViewById(R.id.timepicker));
+            int hour = timePicker.getCurrentHour();
+            int minute = timePicker.getCurrentMinute();
+
+            long alarmStartTime = getTimeInMillis(hour,minute);
+            Toast.makeText(reminderActivity, "T" +alarmStartTime + "C" +System.currentTimeMillis(), Toast.LENGTH_LONG).show();
+
+        }
+
+    }
 
 
     @After
