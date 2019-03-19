@@ -70,6 +70,8 @@ public class ReminderTest {
         assertNotNull(reminderActivity.findViewById(R.id.setbutton));
         onView(withId(R.id.setbutton)).perform(click());
         Intent intent = new Intent(reminderActivity, Alarm.class);
+        Activity alarm = getInstrumentation().waitForMonitorWithTimeout(monitor, 5000);
+        assertNotNull(alarm);
 
     }
 
