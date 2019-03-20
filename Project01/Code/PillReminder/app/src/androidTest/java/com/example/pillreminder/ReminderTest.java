@@ -19,6 +19,7 @@ public class ReminderTest {
     public ActivityTestRule<Reminder> mActivityTestRule = new ActivityTestRule<Reminder>(Reminder.class);
 
     private Reminder reminderActivity = null;
+    Instrumentation.ActivityMonitor monitor = getInstrumentation.addMonitor(Alarm.class.getName(),null,false);
 
     @Before
     public void setUp() throws Exception {
