@@ -9,13 +9,15 @@
     tools:context=".Reminder">
 
     <ImageView
-        android:background="@android:color/white"
+        android:id="@+id/backgroud"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:translationY="-470dp"
-        android:src="@drawable/splashhomepage"
+        android:background="@android:color/white"
         android:contentDescription="@string/app_name"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/splashhomepage"
+        android:translationY="-470dp"
+        tools:layout_editor_absoluteX="20dp" />
 
     <ImageView
         android:id="@+id/iconreminder"
