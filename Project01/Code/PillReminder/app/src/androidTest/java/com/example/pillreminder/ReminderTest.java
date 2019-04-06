@@ -47,7 +47,7 @@ public class ReminderTest {
         assertNotNull(view3);
     }
     @Test
-    public void testLaunchActivity_medicinenameView(){
+    public void testLaunchActivity_medicinenameview(){
         View view4 = reminderActivity.findViewById(R.id.medicinename);
         assertNotNull(view4);
     }
@@ -75,6 +75,14 @@ public class ReminderTest {
         assertNotNull(alarm);
 
     }
+    @Test
+    public void testMedicineNameEditTextFieldValidation(){
+        EditText editText = reminderActivity.findViewById(R.id.medicinename);
+        assertEquals(true, editText);
+        InputFilter letterFilter;
+        assertNotNull( editText.setFilters(new InputFilter[]{letterFilter}));
+    }
+
 
     @Test
     public void testonClick(View view){
