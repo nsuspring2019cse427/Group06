@@ -76,7 +76,7 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
             for (int i = start; i < end; i++) {
                 char character = source.charAt(i);
                 if (Character.isWhitespace(character)) {
-                    return ("Invalid input");
+                    return ("Invalid input, Try again with only Alphabets");
                 } else if (Character.isLetter(character)) {
                     filtered += character;
                 } else if (Character.isSpaceChar(character))
