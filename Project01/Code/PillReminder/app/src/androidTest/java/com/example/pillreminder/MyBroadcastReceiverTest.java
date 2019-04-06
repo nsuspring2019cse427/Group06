@@ -12,18 +12,22 @@ import org.junit.Test;
 import static org.junit.Assert.assertNotNull;
 
 public class MyBroadcastReceiverTest extends BroadcastReceiver {
+	
+	@Rule
+    public ActivityTestRule<BroadcastReceiver> mActivityTestRule = new ActivityTestRule<BroadcastReceiver>(BroadcastReceiver.class);
+	  private BroadcastReceiver BroadcastReceiverActivity = null;
 
     @Before
     public void setUp() throws Exception {
+    	BroadcastReceiverActivity  = mActivityTestRule.getActivity();
     }
 
     @After
     public void tearDown() throws Exception {
+    	BroadcastReceiverActivity = null;
     }
 
-    @Test
-    public void onReceive() {
-    }
+    
     @Test
     public void testIntentHandling() {
         Alarm receiver = (Alarm) receiversForIntent.get(0);
@@ -37,9 +41,7 @@ public class MyBroadcastReceiverTest extends BroadcastReceiver {
 
     }
 
-    private void assertNotNull(String s, String canonicalName, String className) {
-    }
-
+  
     @Override
     public void onReceive(Context context, Intent intent) {
         assertNotNull(NotificationManager myNotificationManager =
