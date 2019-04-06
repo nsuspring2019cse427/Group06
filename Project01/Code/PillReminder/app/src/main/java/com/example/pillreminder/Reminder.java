@@ -30,6 +30,9 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         EditText editText = findViewById(R.id.medicinename);
+        //checking the text field validation 
+        editText.setFilters(new InputFilter[]{letterFilter});
+        
 
         // Set notificationId & text.
         Intent intent = new Intent(this, Alarm.class);
@@ -67,6 +70,22 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
         }
 
     }
+    InputFilter letterFilter = new InputFilter() {
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+            String filtered = "";
+            for (int i = start; i < end; i++) {
+                char character = source.charAt(i);
+                if (Character.isWhitespace(character)) {
+                    return ("Invalid input");
+                } else if (Character.isLetter(character)) {
+                    filtered += character;
+                } else if (Character.isSpaceChar(character))
+                    filtered += character;
+            }
+
+            return filtered;
+        }
+    };
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event){
         if (keyCode == KeyEvent.KEYCODE_BACK){
