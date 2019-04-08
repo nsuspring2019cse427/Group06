@@ -5,6 +5,8 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -53,21 +55,26 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
                 int hour = timePicker.getCurrentHour();
                 int minute = timePicker.getCurrentMinute();
 
-                long alarmStartTime = getTimeInMillis(hour,minute);
-                Toast.makeText(this, "T" +alarmStartTime + "C" +System.currentTimeMillis(), Toast.LENGTH_LONG).show();
+                if(improperTime(hour)){
+                    Toast.makeText(this, "Invalid reminder! 11pm to 5am is sleeping time.", Toast.LENGTH_SHORT).show();
 
-                // Set alarm.
-                // set(type, milliseconds, intent)
-                alarm.setRepeating(AlarmManager.RTC_WAKEUP, alarmStartTime,
-                        AlarmManager.INTERVAL_DAY,alarmIntent);
-                Toast.makeText(this, "Done!" , Toast.LENGTH_SHORT).show();
-                break;
+                }else {
 
-            case R.id.cancelbutton:
-                alarm.cancel(alarmIntent);
-                Toast.makeText(this, "Canceled.", Toast.LENGTH_SHORT).show();
-                break;
-        }
+                    long alarmStartTime = getTimeInMillis(hour, minute);
+                    //Toast.makeText(this, "T" + alarmStartTime + "C" + System.currentTimeMillis(), Toast.LENGTH_LONG).show();
+
+                    // Set alarm.
+                    // set(type, milliseconds, intent)
+                    alarm.setRepeating(AlarmManager.RTC_WAKEUP, alarmStartTime,
+                            AlarmManager.INTERVAL_DAY, alarmIntent);
+                    Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show();
+                    break;
+                }
+                    case R.id.cancelbutton:
+                        alarm.cancel(alarmIntent);
+                        Toast.makeText(this, "Canceled.", Toast.LENGTH_SHORT).show();
+                        break;
+                }
 
     }
     InputFilter letterFilter = new InputFilter() {
@@ -101,5 +108,10 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
         startTime.set(Calendar.MINUTE, minute);
         startTime.set(Calendar.SECOND, 0);
         return startTime.getTimeInMillis();
+    }
+    public boolean improperTime(int hour){
+        if(hour>= 23 || hour<5){
+            return  true;
+        }else return false;
     }
 }
