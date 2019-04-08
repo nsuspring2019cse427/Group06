@@ -75,6 +75,30 @@ public class ReminderTest {
         assertNotNull(alarm);
 
     }
+    
+    @Test
+    public void testEspresso_UITesting(){
+        //checking timepicker view
+        Espresso.onView(withId(R.id.timepicker));
+        //checking medicinename view
+        Espresso.onView(withId(R.id.medicinename));
+        //check if espresso can perform input text in the medicine name field
+        Espresso.onView(withId(R.id.medicinename)).perform(typeText(medicine_name));
+        //check if setbutton view is invoked
+        Espresso.onView(withId(R.id.setbutton));
+        //check if setbutton can perform click
+        Espresso.onView(withId(R.id.setbutton)).perform(click());
+        //check cancelbutton view
+        Espresso.onView(withId(R.id.cancelbutton));
+        //check if cancelbutton can perform click
+        Espresso.onView(withId(R.id.cancelbutton)).perform(click());
+        //check if layout file is openning
+        Espresso.onView(withId(R.id.layoutreminder));
+        //check if background is shown
+        Espresso.onView(withId(R.id.backgroud));
+        
+    }
+
     @Test
     public void testMedicineNameEditTextFieldValidation(){
         EditText editText = reminderActivity.findViewById(R.id.medicinename);
