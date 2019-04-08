@@ -5,6 +5,8 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -52,6 +54,7 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
 
                 int hour = timePicker.getCurrentHour();
                 int minute = timePicker.getCurrentMinute();
+
 
                 long alarmStartTime = getTimeInMillis(hour,minute);
                 Toast.makeText(this, "T" +alarmStartTime + "C" +System.currentTimeMillis(), Toast.LENGTH_LONG).show();
@@ -101,5 +104,10 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
         startTime.set(Calendar.MINUTE, minute);
         startTime.set(Calendar.SECOND, 0);
         return startTime.getTimeInMillis();
+    }
+    public boolean improperTime(int hour){
+        if(hour>= 23 && hour<5){
+            return  false;
+        }else return true;
     }
 }
