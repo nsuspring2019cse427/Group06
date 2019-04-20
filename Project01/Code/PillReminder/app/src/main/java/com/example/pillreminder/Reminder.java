@@ -69,7 +69,7 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
                     Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show();
                     break;
                 }else {
-                    Toast.makeText(this, "Improper alarm time! Try again with valid time.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Improper alarm time! Try again with proper time.", Toast.LENGTH_LONG).show();
 
                 }
                 

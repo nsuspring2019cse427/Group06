@@ -1,5 +1,5 @@
 package com.example.pillreminder;
-/*
+
 import android.app.AliasActivity;
 import android.support.test.rule.ActivityTestRule;
 
@@ -30,4 +30,3 @@ public class AlarmTest {
 
 
 }
-*/
