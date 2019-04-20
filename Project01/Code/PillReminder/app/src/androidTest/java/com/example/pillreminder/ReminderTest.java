@@ -135,5 +135,20 @@ public class ReminderTest {
         });
     }
 
+    @Test
+    public void improperTime() throws Throwable{
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Reminder reminder = new Reminder();
+
+                //Improper time false case test
+                int hour = 20;
+                boolean result = reminder.improperTime(hour);
+                assertEquals(false,result);
+            }
+        });
+    }
+
 
 }
