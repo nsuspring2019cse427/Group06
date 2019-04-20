@@ -135,17 +135,33 @@ public class ReminderTest {
         });
     }
 
+    //Improper time false case test
     @Test
-    public void improperTime() throws Throwable{
+    public void improperTimeFalseCase() throws Throwable{
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 Reminder reminder = new Reminder();
 
-                //Improper time false case test
                 int hour = 20;
                 boolean result = reminder.improperTime(hour);
                 assertEquals(false,result);
+
+            }
+        });
+    }
+    //Improper time true case test
+    @Test
+    public void improperTimeTrueCase() throws Throwable{
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Reminder reminder = new Reminder();
+
+                int hour = 23;
+                boolean result = reminder.improperTime(hour);
+                assertEquals(true,result);
+
             }
         });
     }
