@@ -55,10 +55,9 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
                 int hour = timePicker.getCurrentHour();
                 int minute = timePicker.getCurrentMinute();
 
-                if(improperTime(hour)){
-                    Toast.makeText(this, "Invalid reminder! 11pm to 5am is sleeping time.", Toast.LENGTH_SHORT).show();
+                boolean improperTimeChecker = improperTime(hour);
 
-                }else {
+                if(!improperTimeChecker) {
 
                     long alarmStartTime = getTimeInMillis(hour, minute);
                     //Toast.makeText(this, "T" + alarmStartTime + "C" + System.currentTimeMillis(), Toast.LENGTH_LONG).show();
@@ -69,7 +68,11 @@ public class Reminder extends AppCompatActivity implements View.OnClickListener{
                             AlarmManager.INTERVAL_DAY, alarmIntent);
                     Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show();
                     break;
+                }else {
+                    Toast.makeText(this, "Improper alarm time! Try again with proper time.", Toast.LENGTH_LONG).show();
+
                 }
+                
                     case R.id.cancelbutton:
                         alarm.cancel(alarmIntent);
                         Toast.makeText(this, "Canceled.", Toast.LENGTH_SHORT).show();
