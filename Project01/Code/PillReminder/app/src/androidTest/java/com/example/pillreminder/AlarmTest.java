@@ -20,9 +20,6 @@ public class AlarmTest {
     public void setUp() throws Exception {
         alarmActivity = mActivityRule.getActivity();
     }
-    @Test
-    public void onReceive() {
-    }
     @After
     public void tearDown() throws Exception {
         alarmActivity = null;
