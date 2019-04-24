@@ -13,8 +13,8 @@ import static org.junit.Assert.*;
 public class AlarmTest {
 
     @Rule
-    public ActivityTestRule<Alarm> mActivityRule = new ActivityTestRule<Alarm>(Alarm.class, false, false);
-    private Alarm alarmActivity = null;
+    public ActivityTestRule<Reminder> mActivityRule = new ActivityTestRule<Reminder>(Alarm.class, false, false);
+    private Reminder alarmActivity = null;
 
     @Before
     public void setUp() throws Exception {

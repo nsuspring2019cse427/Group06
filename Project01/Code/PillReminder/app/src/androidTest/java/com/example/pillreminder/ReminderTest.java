@@ -16,12 +16,15 @@ import org.junit.Test;
 
 import java.util.Calendar;
 
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.internal.runner.junit4.statement.UiThreadStatement.runOnUiThread;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class ReminderTest {
 
@@ -76,6 +79,80 @@ public class ReminderTest {
         View view7 = reminderActivity.findViewById(R.id.backgroud);
         assertNotNull(view7);
     }
+    @Test
+    public void testMedicineNameView(){
+        //checking medicinename view
+        Espresso.onView(withId(R.id.medicinename));
+    }
+
+    @Test
+    public void testSetButton(){
+        //check if setbutton view is invoked
+        Espresso.onView(withId(R.id.setbutton));
+        //check if setbutton can perform click
+        Espresso.onView(withId(R.id.setbutton)).perform(click());
+    }
+
+    @Test
+    public void testCancelButton(){
+
+        Espresso.onView(withId(R.id.cancelbutton));
+        Espresso.onView(withId(R.id.cancelbutton)).perform(click());
+
+    }
+
+    @Test
+    public void testSetBackground(){
+        //assertEquals(true, Espresso.onView(withId(R.id.medicinename)).perform(click()));
+        Espresso.onView(withId(R.id.backgroud));
+
+    }
+    @Test
+    public void testTimepicker(){
+        //assertEquals(true, Espresso.onView(withId(R.id.medicinename)).perform(click()));
+        //onView(withId(R.id.timepicker));
+        Espresso.onView(withId(R.id.timepicker));
+
+    }
+    @Test
+    public void testMedicineNameInput(){
+
+        //check if espresso can perform input text in the medicine name field
+        //Napa
+        Espresso.onView(withId(R.id.medicinename)).perform(typeText(medicine_name));
+        Espresso.onView(withId(R.id.medicinename)).check(matches(withText(medicine_name)));
+
+    }
+    @Test
+    public void testMedicineNameInput2(){
+        //napa
+        Espresso.onView(withId(R.id.medicinename)).perform(typeText(medicine_name3));
+        Espresso.onView(withId(R.id.medicinename)).check(matches(withText(medicine_name3)));
+
+    }
+    @Test
+    public void testMedicineNameInput3(){
+        //NAPA
+        Espresso.onView(withId(R.id.medicinename)).perform(typeText(medicine_name2));
+        Espresso.onView(withId(R.id.medicinename)).check(matches(withText(medicine_name2)));
+
+    }
+
+    @Test
+    public void testMedicineNameInput4InvalidInput(){
+
+        //check if espresso can perform input text with numbers in the medicine name field
+        //123Napa
+        Espresso.onView(withId(R.id.medicinename)).perform(typeText(medicine_name4));
+        Espresso.onView(withId(R.id.medicinename)).check(matches(withText(medicine_name4)));
+
+    }
+
+    @Test
+    public void testMedicineNameInputSetButtonClick(){
+        Espresso.onView(withId(R.id.setbutton)).perform(click());
+
+    }
    /* @Test
     public void testLaunchOfSetButtonActivity(){
         assertNotNull(reminderActivity.findViewById(R.id.setbutton));
@@ -85,13 +162,7 @@ public class ReminderTest {
         assertNotNull(alarm);
 
     }
-   @Test
-    public void testMedicineNameEditTextFieldValidation(){
-        EditText editText = reminderActivity.findViewById(R.id.medicinename);
-        assertEquals(true, editText);
-        InputFilter letterFilter;
-        assertNotNull( editText.setFilters(new InputFilter[]{letterFilter}));
-    }*/
+  
 
 
     /*@Test
