@@ -1,5 +1,5 @@
 package com.example.pillreminder;
-
+/*
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -50,3 +50,4 @@ public class MyBroadcastReceiverTest extends BroadcastReceiver {
     }
 }
 
+*/
