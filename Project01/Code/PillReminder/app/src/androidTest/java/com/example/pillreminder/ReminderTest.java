@@ -116,39 +116,39 @@ public class ReminderTest {
         Espresso.onView(withId(R.id.timepicker));
 
     }
-//    @Test
-//    public void testMedicineNameInput(){
-//
-//        //check if espresso can perform input text in the medicine name field
-//        //Napa
-//        Espresso.onView(withId(R.id.medicinename)).perform(typeText(medicine_name));
-//        Espresso.onView(withId(R.id.medicinename)).check(matches(withText(medicine_name)));
-//
-//    }
-//    @Test
-//    public void testMedicineNameInput2(){
-//        //napa
-//        Espresso.onView(withId(R.id.medicinename)).perform(typeText(medicine_name3));
-//        Espresso.onView(withId(R.id.medicinename)).check(matches(withText(medicine_name3)));
-//
-//    }
-//    @Test
-//    public void testMedicineNameInput3(){
-//        //NAPA
-//        Espresso.onView(withId(R.id.medicinename)).perform(typeText(medicine_name2));
-//        Espresso.onView(withId(R.id.medicinename)).check(matches(withText(medicine_name2)));
-//
-//    }
-//
-//    @Test
-//    public void testMedicineNameInput4InvalidInput(){
-//
-//        //check if espresso can perform input text with numbers in the medicine name field
-//        //123Napa
-//        Espresso.onView(withId(R.id.medicinename)).perform(typeText(medicine_name4));
-//        Espresso.onView(withId(R.id.medicinename)).check(matches(withText(medicine_name4)));
-//
-//    }
+     @Test
+      public void testMedicineNameInput(){
+
+        //check if espresso can perform input text in the medicine name field
+        //Napa
+        Espresso.onView(withId(R.id.medicinename)).perform(typeText(medicine_name));
+        Espresso.onView(withId(R.id.medicinename)).check(matches(withText(medicine_name)));
+
+    }
+     @Test
+    public void testMedicineNameInput2(){
+        //napa
+        Espresso.onView(withId(R.id.medicinename)).perform(typeText(medicine_name3));
+        Espresso.onView(withId(R.id.medicinename)).check(matches(withText(medicine_name3)));
+
+    }
+    @Test
+    public void testMedicineNameInput3(){
+        //NAPA
+        Espresso.onView(withId(R.id.medicinename)).perform(typeText(medicine_name2));
+        Espresso.onView(withId(R.id.medicinename)).check(matches(withText(medicine_name2)));
+
+    }
+
+    @Test
+    public void testMedicineNameInput4InvalidInput(){
+
+        //check if espresso can perform input text with numbers in the medicine name field
+        //123Napa
+        Espresso.onView(withId(R.id.medicinename)).perform(typeText(medicine_name4));
+        Espresso.onView(withId(R.id.medicinename)).check(matches(withText(medicine_name4)));
+
+    }
 
     @Test
     public void testMedicineNameInputSetButtonClick(){
